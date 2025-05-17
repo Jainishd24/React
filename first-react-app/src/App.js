@@ -1,21 +1,23 @@
 import './App.css';
-import ClassComponents from './components/ClassComponents';
-import FunctionComponents from './components/FunctionComponents';
+import ClassComponents from './pages/ClassComponents';
+import FunctionComponents from './pages/FunctionComponents';
 import {useState} from 'react';
+import {Routes, Route} from "react-router-dom";
+import BaseHoc from './hoc/BaseHoc';
 
 function App() {
   const author='jd';
   const [name,setName] = useState("JD");
   return (
-    <div className="App">
-      
-        <p>Class Components</p>
-        <ClassComponents/>
-        <br/>
-        <p>Function Components</p>
-        {/* <FunctionComponents name='Jainish' age={19} author={author}/> */}
-        <FunctionComponents name={name} age={19} author={author} setName={setName}/>
-    </div>
+    <Routes>
+      <Route path='/' element ={<ClassComponents/>}/>
+      <Route path='/functional' element ={<FunctionComponents
+      name ={name}
+      age = {19}
+      author ={author}
+      setName ={setName}
+      />}/>
+    </Routes>
   );
 }
 

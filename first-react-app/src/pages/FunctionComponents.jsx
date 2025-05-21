@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import BaseHoc from "../hoc/BaseHoc";
 const FunctionComponent = ({name, age, author, setName }) => {
     const [count, setCount] = useState(0);
     const [changeName, setChangeName] = useState("");
@@ -20,4 +20,4 @@ return(
 )
 }
 
-export default FunctionComponent;
+export default BaseHoc(FunctionComponent);
